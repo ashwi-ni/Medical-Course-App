@@ -41,3 +41,15 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+# Environment variables or secret files
+.env
+
+# Firebase/Google Services files
+google-services.json
+firebase_options.dart
+*.p8
+*.p12
+*.cer
+*.key
+".env" 
+".env" 
