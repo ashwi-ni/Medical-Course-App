@@ -1,0 +1,23 @@
+{
+  "home": "मुखपृष्ठ",
+  "courses": "कोर्सेस",
+  "quiz": "प्रश्नोत्तरी",
+  "profile": "प्रोफ़ाइल",
+  "menu": "मेनू",
+  "aboutUs": "हमारे बारे में",
+  "termsOfService": "सेवा की शर्तें",
+  "privacyPolicy": "गोपनीयता नीति",
+  "rateUs": "हमें रेट करें",
+  "share": "साझा करें",
+  "logout": "लॉगआउट",
+  "appVersion": "ऐप संस्करण",
+  "whatWouldYouLikeToLearn": "आज आप क्या सीखना चाहेंगे? नीचे खोजें।",
+  "searchCourses": "कोर्सेस खोजें...",
+  "allCourses": "सभी कोर्सेस",
+  "uiuxDesigner": "UI/UX डिज़ाइनर",
+  "development": "डेवलपमेंट",
+  "graphics": "ग्राफिक्स",
+  "marketing": "मार्केटिंग",
+  "coding": "कोडिंग",
+  "ongoingCourses": "चल रहे कोर्सेस"
+}

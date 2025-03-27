@@ -1,0 +1,24 @@
+{
+  "home": "Home",
+  "courses": "Courses",
+  "quiz": "Quiz",
+  "profile": "Profile",
+  "menu": "Menu",
+  "aboutUs": "About Us",
+  "termsOfService": "Terms of Service",
+  "privacyPolicy": "Privacy Policy",
+  "rateUs": "Rate Us",
+  "share": "Share",
+  "logout": "Logout",
+  "appVersion": "App Version",
+  "whatWouldYouLikeToLearnToday": "What would you like to learn today? Search below",
+  "searchCourses": "Search courses...",
+  "allCourses": "All Courses",
+  "uiuxDesigner": "UI/UX Designer",
+  "development": "Development",
+  "graphics": "Graphics",
+  "marketing": "Marketing",
+  "coding": "Coding",
+  "ongoingCourses": "Ongoing Courses"
+
+}

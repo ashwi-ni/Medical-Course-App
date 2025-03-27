@@ -1,0 +1,23 @@
+{
+  "home": "Inicio",
+  "courses": "Cursos",
+  "quiz": "Cuestionario",
+  "profile": "Perfil",
+  "menu": "Menú",
+  "aboutUs": "Sobre nosotros",
+  "termsOfService": "Términos de servicio",
+  "privacyPolicy": "Política de privacidad",
+  "rateUs": "Califícanos",
+  "share": "Compartir",
+  "logout": "Cerrar sesión",
+  "appVersion": "Versión de la aplicación",
+  "whatWouldYouLikeToLearn": "¿Qué te gustaría aprender hoy? Busca abajo.",
+  "searchCourses": "Buscar cursos...",
+  "allCourses": "Todos los cursos",
+  "uiuxDesigner": "Diseñador UI/UX",
+  "development": "Desarrollo",
+  "graphics": "Gráficos",
+  "marketing": "Marketing",
+  "coding": "Programación",
+  "ongoingCourses": "Cursos en curso"
+}
