@@ -4,37 +4,44 @@ import 'package:flutter/services.dart';
 
 class AppLocalizations {
   final Locale locale;
-  late Map<String, String> _localizedStrings;
+  Map<String, String> _localizedStrings = {};
 
   AppLocalizations(this.locale);
 
-  static AppLocalizations of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
+  static AppLocalizations? of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
   Future<void> load() async {
-    String jsonString =
-    await rootBundle.loadString('assets/lang/${locale.languageCode}.json');
-    Map<String, dynamic> jsonMap = json.decode(jsonString);
-    _localizedStrings =
-        jsonMap.map((key, value) => MapEntry(key, value.toString()));
+    try {
+      String jsonString = await rootBundle.loadString(
+        'assets/lang/${locale.languageCode}.json',
+      );
+      Map<String, dynamic> jsonMap = json.decode(jsonString);
+      _localizedStrings = jsonMap.map((key, value) => MapEntry(key, value.toString()));
+    } catch (e) {
+      debugPrint('Error loading language file: $e');
+      _localizedStrings = {}; // Fallback to an empty map in case of error
+    }
   }
 
   String translate(String key) {
-    return _localizedStrings[key] ?? key;
+    if (_localizedStrings.containsKey(key)) {
+      return _localizedStrings[key]!;
+    } else {
+      // Fallback to English if key is not found
+      return AppLocalizations(Locale('en'))._localizedStrings[key] ?? key;
+    }
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-  _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) =>
-      ['en', 'es', 'hi', 'mr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => ['en', 'es', 'hi', 'mr'].contains(locale.languageCode);
 
   @override
   Future<AppLocalizations> load(Locale locale) async {
@@ -44,5 +51,5 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool shouldReload(_AppLocalizationsDelegate old) => false;
+  bool shouldReload(_AppLocalizationsDelegate old) => true;
 }

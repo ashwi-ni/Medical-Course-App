@@ -120,11 +120,10 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-
-
   @override
   Widget build(BuildContext context) {
-    final localization = AppLocalizations.of(context);
+    final localization = AppLocalizations.of(context) ?? AppLocalizations(Locale('en'));
+
 
     return Scaffold(
       key: _scaffoldKey,
@@ -192,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildDrawer(AppLocalizations localization) {
+  Widget _buildDrawer(AppLocalizations? localization) {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -200,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
           DrawerHeader(
             decoration: const BoxDecoration(color: Color(0xFF3d675f)),
             child: Text(
-              localization.translate('menu'),
+              localization!.translate('menu'),
               style: const TextStyle(color: Colors.white, fontSize: 30),
             ),
           ),
@@ -285,7 +284,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
 class HomeContentScreen extends StatefulWidget {
-  final Function(Locale) onLocaleChange;
+  final void Function(Locale) onLocaleChange;
 
   const HomeContentScreen({super.key, required this.onLocaleChange});
   @override
@@ -337,12 +336,13 @@ class _HomeContentScreenState extends State<HomeContentScreen> with SingleTicker
         border: Border.all(color: Colors.teal),
       ),
       child: Text(
-        AppLocalizations.of(context).translate(key),
+        key.translate(context),
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,
         ),
       ),
+
     );
   }
 
@@ -361,8 +361,8 @@ class _HomeContentScreenState extends State<HomeContentScreen> with SingleTicker
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'What would you like to learn today? Search below'.translate(context),
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+                AppLocalizations.of(context)!.translate('What would you like to learn today? Search below'),
+        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
                 ),
                 SizedBox(height: 16),
                 TextField(
@@ -526,7 +526,7 @@ class _HomeContentScreenState extends State<HomeContentScreen> with SingleTicker
 }
 extension LocalizationExtension on String {
   String translate(BuildContext context) {
-    return AppLocalizations.of(context).translate(this);
+    return AppLocalizations.of(context)?.translate(this) ?? this;
   }
 }
 
