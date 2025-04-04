@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'OnboardingScreen.dart';
-
 //import 'OnboardingScreen.dart';
 class SplashScreen extends StatefulWidget {
   final void Function(Locale locale)? onLocaleChange; // ✅ Added this
@@ -32,7 +30,6 @@ class _SplashScreenState extends State<SplashScreen> {
     }
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

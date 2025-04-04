@@ -183,7 +183,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                   SizedBox(height: 8),
                   Text(
                     widget.course['title'] ?? 'No Title',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 8),
                   Row(
@@ -331,18 +331,7 @@ class _TabBarSectionState extends State<TabBarSection> with SingleTickerProvider
               ],
             ),
           ),
-          // SizedBox(height: 10),
-          // Center(
-          //   child: ElevatedButton(
-          //     onPressed: () {},
-          //     child: Text('Unlock All Videos', style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
-          //     style: ElevatedButton.styleFrom(
-          //       backgroundColor: Color(0xFF3d675f),
-          //       padding: EdgeInsets.symmetric(vertical: 16, horizontal: 80),
-          //     ),
-          //   ),
-          // ),
-        ],
+               ],
       ),
     );
   }

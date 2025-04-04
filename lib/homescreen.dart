@@ -301,11 +301,11 @@ class _HomeContentScreenState extends State<HomeContentScreen> with SingleTicker
 
   final List<String> _categoryKeys = [
     'All Courses',
-    'UI/UX Designer',
-    'Development',
-    'Graphics',
-    'Marketing',
-    'Coding'
+    //'UI/UX Designer',
+    'Cell Biology',
+    'Hematology',
+    'Immunology',
+    'Cardiovascular Physiology'
   ];
   @override
   void initState() {
@@ -415,7 +415,7 @@ class _HomeContentScreenState extends State<HomeContentScreen> with SingleTicker
               children: [
                 Text(
                   'Ongoing Courses'.translate(context),
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 16),
                 StreamBuilder<QuerySnapshot>(
@@ -884,33 +884,35 @@ class ProfileScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           color: Colors.grey.shade200,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            imageUrl.startsWith('http')
-                ? Image.network(imageUrl, fit: BoxFit.cover)
-                : Image.asset(imageUrl, fit: BoxFit.cover),
-            SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
-                Text('\$$cost', style: TextStyle(color: Colors.green)),
-              ],
-            ),
-            SizedBox(height: 4),
-           Text('Lessons: $lessons', style: TextStyle(color: Colors.grey)),
-            Divider(),
-            Row(
-              children: List.generate(5, (index) {
-                return Icon(
-                  index < rating ? Icons.star : Icons.star_border,
-                  color: Colors.yellow,
-                  size: 16,
-                );
-              }),
-            ),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              imageUrl.startsWith('http')
+                  ? Image.network(imageUrl, fit: BoxFit.cover)
+                  : Image.asset(imageUrl, fit: BoxFit.cover),
+              SizedBox(height: 1),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(child: Text(title, style: TextStyle(fontWeight: FontWeight.bold))),
+                  Text('\$$cost', style: TextStyle(color: Colors.green)),
+                ],
+              ),
+              SizedBox(height: 4),
+             Text('Lessons: $lessons', style: TextStyle(color: Colors.grey)),
+              Divider(),
+              Row(
+                children: List.generate(5, (index) {
+                  return Icon(
+                    index < rating ? Icons.star : Icons.star_border,
+                    color: Colors.yellow,
+                    size: 16,
+                  );
+                }),
+              ),
+            ],
+          ),
         ),
       );
     }
